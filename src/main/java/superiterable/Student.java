@@ -47,7 +47,17 @@ public class Student {
         '}';
   }
 
-  public static Predicate<Student> getSmartCriterion() {
-    return s -> s.getGrade() < 65;
+  public static Predicate<Student> getSmartCriterion(int threshold) {
+    return s -> s.getGrade() > threshold; // "closure"
   }
+
+//  // primitive wrappers (e.g. Integer) are immutable, like String
+//  // int[1] can have immutable reference to a mutable int value :)
+//  public static Predicate<Student> getSmartCriterion(/*final */int threshold) {
+////    threshold += 1;
+//    return s -> {
+////      threshold ++;
+//      return s.getGrade() > threshold; // "closure"
+//    };
+//  }
 }
