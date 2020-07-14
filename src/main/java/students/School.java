@@ -1,8 +1,13 @@
 package students;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+interface Another {
+  boolean doStuff(Student s);
+}
 
 interface StudentCriterion {
   boolean test(Student s);
@@ -93,8 +98,18 @@ public class School {
 
     // NOT ALLOWED
 //    Object criterion = s -> s.getGrade() < 65;
-    StudentCriterion criterion = s -> s.getGrade() < 65;
+    StudentCriterion criterion;
+    criterion = s -> s.getGrade() < 65;
     System.out.println("Class name of this lambda is " +
         criterion.getClass().getName());
+
+//    Another & Serializable variable; NOT allowed for variables
+    Object critObject = (Another & Serializable)(s -> s.getGrade() < 65);
+    System.out.println("Class name of second lambda is " +
+        criterion.getClass().getName()
+        + "\n   instanceof StudentCriterion " + (critObject instanceof  StudentCriterion));
+
+
+
   }
 }

@@ -1,8 +1,9 @@
-package students;
+package predstudents;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Student {
   private String name;
@@ -46,7 +47,7 @@ public class Student {
         '}';
   }
 
-  public static StudentCriterion getSmartCriterion() {
+  public static Predicate<Student> getSmartCriterion() {
     return s -> s.getGrade() < 65;
   }
 }
