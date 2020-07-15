@@ -9,6 +9,7 @@ interface Another {
   boolean doStuff(Student s);
 }
 
+@FunctionalInterface
 interface StudentCriterion {
   boolean test(Student s);
   default void doStuff() {};
