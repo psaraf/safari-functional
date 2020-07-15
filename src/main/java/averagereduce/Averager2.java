@@ -17,7 +17,7 @@ public class Averager2 {
 //        x -> ThreadLocalRandom.current().nextDouble(-Math.PI, Math.PI))
 
 //        .limit(COUNT)
-        
+
         .parallel()
 //        .sequential()
         .boxed()
